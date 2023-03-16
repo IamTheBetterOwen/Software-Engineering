@@ -28,6 +28,7 @@ a {
 }
 
 a.active {
+	
 	color: var(--accent-clr);
 	fill: var(--accent-clr);
 }
