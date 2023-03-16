@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-clr: #ffffff;
+  --secondary-clr: #5a5a5a;
+  --accent-clr: #0f218f;
+  --background-clr: #f9f9f9;
+}
+
+body {
+  background: var(--background-clr);
+  width: 100vw;
+  height: 100vh;
+}
+
+svg {
+  width: min(30px, 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+a.active {
+  color: var(--accent-clr);
+  fill: var(--accent-clr);
+}
+
+a:not(.active) {
+  color: var(--secondary-clr);
+}
+
+p {
+  color: var(--secondary-clr);
+}
