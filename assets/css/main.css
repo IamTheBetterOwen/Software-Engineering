@@ -78,3 +78,43 @@ li a:hover:not(.active) {
 	padding-left: 40px;
 	padding-right: 40px;
 }
+
+section {
+	height: 50vh;
+	background: red;
+}
+
+button {
+	padding: .5rem 3rem;
+}
+
+dialog {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  top: 50%;
+  left: 50%;
+	transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 20px #212121;
+}
+.open {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.dialog-container {
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    padding: 30px;
+}
