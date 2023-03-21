@@ -117,19 +117,35 @@
         </p>
       </section>
       <section class="admin-dashboard-content">
-        <button data-modal="modalDialog">Add User</button>
-        <button data-modal="modalDialog">Edit User</button>
+        <button data-modal="modalDialog">Add Team</button>
+        <button data-modal="modalDialog">Edit Team</button>
         <button data-modal="modalDialog">Add Milestone</button>
         <button data-modal="modalDialog">Edit Milestone</button>
         <dialog id="modalDialog">
-          <div>
-            <label for="username">Username:</label>
-            <input name="username" type="text" />
-          </div>
-          .
-          <label for="userscore">Score:</label>
-          <input name="userscore" type="text" />
-          <button class="modal-exit">X</button>
+          <form action="./app/helpers/process-modal-form.php" method="post">
+            <div>
+              <h4 class="modal-title">Add Team</h4>
+              <label for="teamName">Team Name:</label>
+              <input name="teamName" type="text" />
+            </div>
+            <label for="teamScore">Team Score:</label>
+            <input name="teamScore" type="text" />
+            <button type="submit" name="add-team">Submit</button>
+            <button class="modal-exit">X</button>
+          </form>
+        </dialog>
+        <dialog id="modalDialog">
+          <form action="./app/helpers/process-modal-form.php" method="post">
+            <div>
+              <h4 class="modal-title">Add Team</h4>
+              <label for="teamName">Team Name:</label>
+              <input name="teamName" type="text" />
+            </div>
+            <label for="teamScore">Team Score:</label>
+            <input name="teamScore" type="text" />
+            <button type="submit" name="add-team">Submit</button>
+            <button class="modal-exit">X</button>
+          </form>
         </dialog>
       </section>
     </main>
