@@ -64,7 +64,18 @@ header > * {
   display: flex;
   align-items: center;
 }
-/*  */
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
 .user-profile {
   max-width: 40px;
   aspect-ratio: 1 / 1;
@@ -115,13 +126,31 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-clr);
+}
+
 .main-content-wrapper {
   width: 100%;
-  display: flex;
   height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 20vh);
+}
+
+.main-content-wrapper.teams {
+  grid-template-rows: repeat(5, 14vh);
+}
+
+.grid-container {
+  margin-top: 5rem;
+  margin-left: 4rem;
 }
 
 .side-panel {
+  grid-row: 1 / 8;
   padding-top: 4rem;
   display: inline-block;
   background-color: var(--primary-clr);
@@ -146,8 +175,9 @@ li a:hover:not(.active) {
   margin-top: 3rem;
 }
 
-section {
-  height: 50vh;
+.main-content-wrapper section {
+  grid-column: 2 / 4;
+  margin-top: 6rem;
 }
 
 button {
@@ -178,17 +208,24 @@ input[type="search"] {
 }
 
 .admin-dashboard-content {
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-content: center;
+  align-content: start;
   gap: 1rem;
+  max-width: 25rem;
+}
+
+.welcome-dashboard {
+  margin-block: auto 2rem;
+}
+
+.welcome-dashboard p {
+  margin-top: 0.2rem;
 }
 
 dialog {
   position: absolute;
-  width: 50vw;
-  height: 50vh;
+  padding: 2rem 4rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -203,6 +240,29 @@ dialog {
   border-radius: 1rem;
   box-shadow: 0px 0px 20px #212121;
 }
+
+dialog * {
+  display: block;
+}
+
+dialog input {
+  --border-width: 1px;
+  width: 15rem;
+  border: none;
+  outline: none;
+  border-bottom: var(--border-width) solid var(--accent-clr);
+  margin-bottom: 0.9rem;
+}
+
+dialog input:focus {
+  --border-width: 2px;
+}
+
+dialog button {
+  height: unset;
+  padding: 0.4em;
+}
+
 .open {
   visibility: visible;
   opacity: 1;
@@ -217,19 +277,28 @@ dialog {
 }
 
 .grid-container {
+  grid-column: 2;
   display: grid;
-  width: 100rem;
-  grid-template-areas: "side-panel position image user-name projects success-ratio score";
-  gap: 1rem;
-  background-color: #315bb7;
-  padding: 2rem;
+  width: min(100%, 80rem);
+  grid-template-areas: "position image user-name projects success-ratio score";
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+  background-color: var(--primary-clr);
+  padding: 0 2rem;
   height: 6rem;
   border-radius: 1rem;
+  border: 1px solid var(--secondary-clr);
 }
 
 .progress-img {
-  max-width: 30px;
+  max-width: 50px;
   aspect-ratio: 1 / 1;
   color: var(--accent-clr);
   gap: 0.7rem;
+}
+
+div [data-position] {
+  font-weight: 700;
+  color: var(--accent-clr);
 }
