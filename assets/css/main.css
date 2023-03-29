@@ -144,9 +144,8 @@ li a:hover:not(.active) {
   grid-template-rows: repeat(5, 14vh);
 }
 
-.grid-container {
-  margin-top: 5rem;
-  margin-left: 4rem;
+.grid-container:not(:first-child) {
+  margin-top: 1rem;
 }
 
 .side-panel {
@@ -176,8 +175,11 @@ li a:hover:not(.active) {
 }
 
 .main-content-wrapper section {
-  grid-column: 2 / 4;
   margin-top: 6rem;
+}
+
+.main-content-wrapper.dashboard section {
+  grid-column: 2 / 4;
 }
 
 button {
@@ -276,10 +278,19 @@ dialog button {
   padding: 30px;
 }
 
+.team-listing-wrapper {
+  width: 80rem;
+  height: 35rem;
+  overflow-y: hidden;
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
 .grid-container {
   grid-column: 2;
   display: grid;
-  width: min(100%, 80rem);
+  width: min(100%, 45rem);
   grid-template-areas: "position image user-name projects success-ratio score";
   align-items: center;
   justify-content: space-evenly;
@@ -298,7 +309,12 @@ dialog button {
   gap: 0.7rem;
 }
 
+.grid-container > * {
+  width: 50px;
+}
+
 div [data-position] {
   font-weight: 700;
+  font-size: 1.3em;
   color: var(--accent-clr);
 }
