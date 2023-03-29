@@ -64,7 +64,7 @@ header > * {
   display: flex;
   align-items: center;
 }
-/*  */
+
 .user-profile {
   max-width: 40px;
   aspect-ratio: 1 / 1;
@@ -117,11 +117,14 @@ li a:hover:not(.active) {
 
 .main-content-wrapper {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 315px 1fr;
+  grid-template-rows: repeat(2, 1fr);
   height: 100%;
 }
 
 .side-panel {
+  grid-row: 1 / -1;
   padding-top: 4rem;
   display: inline-block;
   background-color: var(--primary-clr);
@@ -146,8 +149,13 @@ li a:hover:not(.active) {
   margin-top: 3rem;
 }
 
-section {
-  height: 50vh;
+.welcome-dashboard {
+  grid-column: 2;
+}
+
+.admin-dashboard-content {
+  grid-row: 2 / -1;
+  grid-column: 2 / -1;
 }
 
 button {
@@ -178,11 +186,11 @@ input[type="search"] {
 }
 
 .admin-dashboard-content {
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-content: center;
+  align-content: start;
   gap: 1rem;
+  max-width: 25rem;
 }
 
 dialog {

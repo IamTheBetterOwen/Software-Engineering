@@ -108,7 +108,7 @@
         >
         <h2 class="team-name"></h2>
       </aside>
-      // TODO
+      <!-- TODO -->
       <section class="welcome-dashboard">
         <div class="h3 section-title">Welcome back, Ashley</div>
         <p>
@@ -117,11 +117,11 @@
         </p>
       </section>
       <section class="admin-dashboard-content">
-        <button data-modal="modalDialog">Add Team</button>
-        <button data-modal="modalDialog">Edit Team</button>
+        <button data-modal="modalDialogAddTeam">Add Team</button>
+        <button data-modal="modalDialogEditTeam">Edit Team</button>
         <button data-modal="modalDialog">Add Milestone</button>
         <button data-modal="modalDialog">Edit Milestone</button>
-        <dialog id="modalDialog">
+        <dialog id="modalDialogAddTeam">
           <form action="./app/helpers/process-modal-form.php" method="post">
             <div>
               <h4 class="modal-title">Add Team</h4>
@@ -134,10 +134,10 @@
             <button class="modal-exit">X</button>
           </form>
         </dialog>
-        <dialog id="modalDialog">
+        <dialog id="modalDialogEditTeam">
           <form action="./app/helpers/process-modal-form.php" method="post">
             <div>
-              <h4 class="modal-title">Add Team</h4>
+              <h4 class="modal-title">Edit Team</h4>
               <label for="teamName">Team Name:</label>
               <input name="teamName" type="text" />
             </div>
