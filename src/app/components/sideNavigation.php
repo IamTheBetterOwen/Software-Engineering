@@ -1,66 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Leadership Project Team 8</title>
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
-    <script src="assets/js/app.js" defer></script>
-  </head>
-
-  <body>
-    <header>
-      <div class="user-profile">
-        <img
-          src="../assets/img/User-Profile-Pic.png	"
-          alt="User Profile Picture"
-          class="user--img"
-        />
-        <h3 class="user--name">Ashley</h3>
-        <i class="uil uil-angle-down icons down-arrow"></i>
-      </div>
-      <div class="search-bar">
-        <i class="uil uil-search icons searchbar"></i>
-        <input type="search" name="#" id="#" placeholder="Search..." />
-      </div>
-      <div class="notification-block">
-        <h4 class="user-role-title">Admin</h4>
-        <i class="uil uil-envelope-alt icons mail"></i>
-        <i class="uil uil-bell icons bell"></i>
-      </div>
-    </header>
-    <main class="main-content-wrapper">
-      <aside class="side-panel">
-        <a href="../index.html">
+<!-- Side Panel -->
+<aside class="side-panel">
+        <a href="index.html" class="active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40.503"
             height="31.496"
             viewBox="0 0 40.503 31.496"
           >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #0f218f;
-                }
-              </style>
-            </defs>
             <path
               id="Icon_awesome-home"
               data-name="Icon awesome-home"
-              class="cls-1"
               d="M19.714,10.425,6.75,21.1V32.625A1.125,1.125,0,0,0,7.875,33.75l7.879-.02A1.125,1.125,0,0,0,16.874,32.6v-6.73A1.125,1.125,0,0,1,18,24.75h4.5a1.125,1.125,0,0,1,1.125,1.125V32.6a1.125,1.125,0,0,0,1.125,1.129l7.876.022a1.125,1.125,0,0,0,1.125-1.125V21.094L20.789,10.425A.857.857,0,0,0,19.714,10.425Zm20.477,7.257-5.878-4.845V3.1a.844.844,0,0,0-.844-.844H29.531a.844.844,0,0,0-.844.844V8.2l-6.3-5.179a3.375,3.375,0,0,0-4.289,0L.305,17.681A.844.844,0,0,0,.193,18.87l1.793,2.18a.844.844,0,0,0,1.189.115L19.714,7.542a.857.857,0,0,1,1.076,0l16.54,13.622a.844.844,0,0,0,1.188-.112l1.793-2.18a.844.844,0,0,0-.12-1.19Z"
               transform="translate(0.001 -2.254)"
             />
           </svg>
           Dashboard</a
         >
-        <a href="users.html" class="active"
+        <a href="src/users.html"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -76,7 +32,7 @@
           </svg>
           Users</a
         >
-        <a href="schedule.html"
+        <a href="src/schedule.html"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -99,7 +55,7 @@
           </svg>
           Schedule</a
         >
-        <a href="progress.html"
+        <a href="src/progress.html"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="39.99"
@@ -117,6 +73,3 @@
         >
         <h2 class="team-name"></h2>
       </aside>
-    </main>
-  </body>
-</html>

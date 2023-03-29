@@ -33,7 +33,7 @@
         <i class="uil uil-bell icons bell"></i>
       </div>
     </header>
-    <main class="main-content-wrapper">
+    <main class="main-content-wrapper dashboard">
       <aside class="side-panel">
         <a href="index.html" class="active">
           <svg
@@ -51,7 +51,7 @@
           </svg>
           Dashboard</a
         >
-        <a href="src/users.html"
+        <a href="src/teams.html"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -65,7 +65,7 @@
               transform="translate(-2.571 -5.143)"
             />
           </svg>
-          Users</a
+          Teams</a
         >
         <a href="src/schedule.html"
           ><svg
@@ -74,17 +74,9 @@
             height="31.5"
             viewBox="0 0 36 31.5"
           >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #1b1b1b;
-                }
-              </style>
-            </defs>
             <path
               id="Icon_open-project"
               data-name="Icon open-project"
-              class="cls-1"
               d="M0,0V31.5H4.5V0ZM31.5,0V31.5H36V0ZM9,4.5V9h9V4.5Zm4.5,9V18h9V13.5Zm4.5,9V27h9V22.5Z"
             />
           </svg>
@@ -112,17 +104,19 @@
       <section class="welcome-dashboard">
         <div class="h3 section-title">Welcome back, Ashley</div>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias,
-          odio!
+          Here you can quickly and easily add or update leader-board information
+          to better track your position. Simply choose from the below options to
+          manage the data you want.
         </p>
       </section>
       <section class="admin-dashboard-content">
-        <button data-modal="modalDialogAddTeam">Add Team</button>
-        <button data-modal="modalDialogEditTeam">Edit Team</button>
-        <button data-modal="modalDialog">Add Milestone</button>
-        <button data-modal="modalDialog">Edit Milestone</button>
-        <dialog id="modalDialogAddTeam">
-          <form action="./app/helpers/process-modal-form.php" method="post">
+        <button data-modal="addTeamModal">Add Team</button>
+        <button data-modal="editTeamModal">Edit Team</button>
+        <button data-modal="addMilestoneModal">Add Milestone</button>
+        <button data-modal="editMilestoneModal">Update Milestone</button>
+
+        <dialog id="addTeamModal">
+          <form action="" method="">
             <div>
               <h4 class="modal-title">Add Team</h4>
               <label for="teamName">Team Name:</label>
@@ -130,21 +124,64 @@
             </div>
             <label for="teamScore">Team Score:</label>
             <input name="teamScore" type="text" />
-            <button type="submit" name="add-team">Submit</button>
-            <button class="modal-exit">X</button>
+            <div class="flex-container">
+              <button type="submit" name="add-team">Submit</button>
+              <button class="modal-exit">Cancel</button>
+            </div>
           </form>
         </dialog>
-        <dialog id="modalDialogEditTeam">
-          <form action="./app/helpers/process-modal-form.php" method="post">
+
+        <dialog id="editTeamModal">
+          <form action="" method="">
             <div>
               <h4 class="modal-title">Edit Team</h4>
+              <label for="teamID">Team ID:</label>
+              <input name="teamID" type="text" />
               <label for="teamName">Team Name:</label>
               <input name="teamName" type="text" />
             </div>
             <label for="teamScore">Team Score:</label>
             <input name="teamScore" type="text" />
-            <button type="submit" name="add-team">Submit</button>
-            <button class="modal-exit">X</button>
+            <div class="flex-container">
+              <button type="submit" name="edit-team">Submit</button>
+              <button class="modal-exit">Cancel</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="addMilestoneModal">
+          <form action="" method="">
+            <div>
+              <h4 class="modal-title">Add New Milestone</h4>
+              <label for="teamID">Team ID:</label>
+              <input name="teamID" type="text" />
+              <label for="teamMilestone">Milestone:</label>
+              <input name="teamMilestone" type="text" />
+              <label for="teamMilestone">Milestone Description:</label>
+              <input name="teamMilestoneDescription" type="text" />
+            </div>
+            <div class="flex-container">
+              <button type="submit" name="add-milestone">Submit</button>
+              <button class="modal-exit">Cancel</button>
+            </div>
+          </form>
+        </dialog>
+
+        <dialog id="editMilestoneModal">
+          <form action="" method="">
+            <div>
+              <h4 class="modal-title">Update Milestone</h4>
+              <label for="teamID">Team ID:</label>
+              <input name="teamID" type="text" />
+              <label for="teamMilestone">Milestone:</label>
+              <input name="teamMilestone" type="text" />
+              <label for="teamMilestone">Milestone Description:</label>
+              <input name="teamMilestoneDescription" type="text" />
+            </div>
+            <div class="flex-container">
+              <button type="submit" name="edit-milestone">Submit</button>
+              <button class="modal-exit">Cancel</button>
+            </div>
           </form>
         </dialog>
       </section>
