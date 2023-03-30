@@ -1,7 +1,6 @@
   <!-- DATABASE FILE -->
   <?php
 
-  session_start();
   require('db_connect.php');
 
 
@@ -17,35 +16,6 @@
     return $stmt;
   }
 
-  // Select All records that follow conditions outlined dynamically
-  function selectAll($table, $conditions = [])
-  {
-    global $conn;
-    $sql = "SELECT * FROM $table";
-    if (empty($conditions)) {
-      // RETURN ALL RECORDS IF CONDITIONS ARE EMPTY
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $records;
-    } else {
-      // RETURN RECORDS THAT MATCH CONDITIONS SET BY TEAM NAME
-      // $sql = "SELECT * FROM $table WHERE teamName='Group 1'";
-
-      $i = 0;
-      foreach ($conditions as $key => $value) {
-        if ($i === 0) {
-          $sql = $sql . " WHERE $key=?";
-        }
-        $i++;
-      }
-
-      $stmt = executeQuery($sql, $conditions);
-      $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-      return $records;
-
-    }
-  }
 
     // Terminates search after finding 1 record that matches conditions outlined dynamically
   function selectOne($table, $conditions)
@@ -125,4 +95,18 @@
       $stmt = executeQuery($sql, ['id'=> $id]);
       return $stmt->affected_rows;
 
+    }
+
+
+    function searchUsers($term)
+    {
+      $match = '%' . $term . '%';
+      global $conn;
+      // SELECT ALL COLUMS FROM POSTS TABLE WHERE PUBLISHED = 1 (BELOW)
+      // SELECT ALL FROM teams
+      $sql = "SELECT * FROM teams";
+
+      $stmt = executeQuery($sql, ['teamId' =>1]);
+      $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+      return $records;
     }

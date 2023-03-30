@@ -209,6 +209,10 @@ input[type="search"] {
   border-radius: 100vw;
 }
 
+input[type="file"] {
+  padding-bottom: 0.35rem;
+}
+
 .admin-dashboard-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -288,10 +292,8 @@ dialog button {
 }
 
 .grid-container {
-  grid-column: 2;
-  display: grid;
-  width: min(100%, 45rem);
-  grid-template-areas: "position image user-name projects success-ratio score";
+  display: flex;
+  width: 45rem;
   align-items: center;
   justify-content: space-evenly;
   gap: 3rem;
@@ -311,6 +313,7 @@ dialog button {
 
 .grid-container > * {
   width: 50px;
+  font-size: 0.95rem;
 }
 
 div [data-position] {
