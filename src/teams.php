@@ -1,27 +1,33 @@
+<?php
+include("../path.php");
+
+include(ROOT_PATH . "/src/app/database/db.php");
+
+      global $conn;
+      $sql = "SELECT * FROM teams";
+      $result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Progress - Leadership Project Team 8</title>
+    <title>Dashboard - Leadership Project Team 8</title>
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"
-      defer
-    ></script>
-    <script src="../assets/js/app.js" defer></script> -->
+    <script src="../assets/js/app.js" defer></script>
   </head>
 
   <body>
     <header>
       <div class="user-profile">
         <img
-          src="../assets/img/User-Profile-Pic.png"
+          src="../assets/img/User-Profile-Pic.png	"
           alt="User Profile Picture"
           class="user--img"
         />
@@ -38,10 +44,22 @@
         <i class="uil uil-bell icons bell"></i>
       </div>
     </header>
-    <main class="main-content-wrapper progress">
+    <main class="main-content-wrapper teams">
       <aside class="side-panel">
-        <a href="../index.php"
-          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.503 31.496">
+        <a href="../index.php">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40.503"
+            height="31.496"
+            viewBox="0 0 40.503 31.496"
+          >
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #0f218f;
+                }
+              </style>
+            </defs>
             <path
               id="Icon_awesome-home"
               data-name="Icon awesome-home"
@@ -51,7 +69,7 @@
           </svg>
           Dashboard</a
         >
-        <a href="teams.php"
+        <a href="teams.php" class="active"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -82,8 +100,8 @@
           </svg>
           Schedule</a
         >
-        <a href="#progress" class="active">
-          <svg
+        <a href="progress.html"
+          ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="39.99"
             height="32.5"
@@ -96,38 +114,45 @@
               transform="translate(-2.571 -5.784)"
             />
           </svg>
-          Progress
-        </a>
+          Progress</a
+        >
         <h2 class="team-name"></h2>
       </aside>
-      <section class="chart-wrapper">
-        <canvas id="myChart"></canvas>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-          const ctx = document.getElementById("myChart");
+      <section class="team-listing-wrapper">
 
-          new Chart(ctx, {
-            type: "bar",
-            data: {
-              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-              datasets: [
-                {
-                  label: "# of Votes",
-                  data: [12, 19, 3, 5, 2, 3],
-                  borderWidth: 1,
-                },
-              ],
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
-            },
-          });
-        </script>
+        <div class="colums-2">
+          <div class="grid-title">
+            <h3>Postion</h3>
+            <h3>Display Image</h3>
+            <h3>Team Name</h3>
+            <h3>Team Id</h3>
+            <h3>Team Score</h3>
+            <h3>Team Rating</h3>
+          </div>
+
+          <?php while ($row = mysqli_fetch_array($result)) {
+            $tempImageLocation = explode("../", $row["teamImage"]);
+            
+          echo '<div class="grid-container team-listing">
+            <div data-position=""></div>
+            
+              <img
+                src="../' . $tempImageLocation[3] .'"
+                alt="Team Profile"
+                class="progress-img"
+              />
+              
+            <div class="user-name">' . $row["TeamName"] . '</div>
+            <div class="user-id">' . $row["TeamID"] . '</div>
+            <div class="score">' . $row["TeamScore"] . '</div>
+            <div class="team-rank">' . $row["TeamRating"] . '</div>
+            </div>';
+        }
+          ?>
+          
+          
+          
+        </div>
       </section>
     </main>
   </body>
