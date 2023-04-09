@@ -39,11 +39,7 @@
     </header>
     <main class="main-content-wrapper dashboard">
       <aside class="side-panel">
-<<<<<<< Updated upstream
-        <a href="index.html" class="active">
-=======
         <a href="index.php" class="active">
->>>>>>> Stashed changes
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40.503"
@@ -59,11 +55,7 @@
           </svg>
           Dashboard</a
         >
-<<<<<<< Updated upstream
-        <a href="src/teams.html"
-=======
         <a href="src/teams.php"
->>>>>>> Stashed changes
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -110,11 +102,7 @@
           </svg>
           Progress</a
         >
-<<<<<<< Updated upstream
         <h2 class="team-name"></h2>
-=======
-        <h2 class="Team-name"></h2>
->>>>>>> Stashed changes
       </aside>
       <!-- TODO -->
       <section class="welcome-dashboard">
@@ -132,16 +120,6 @@
         <button data-modal="editMilestoneModal">Update Milestone</button>
 
         <dialog id="addTeamModal">
-<<<<<<< Updated upstream
-          <form action="index.php" method="post">
-            <div>
-              <h4 class="modal-title">Add Team</h4>
-              <label for="teamName">Team Name:</label>
-              <input name="teamName" type="text" />
-              <label for="teamImage">Team Icon:</label>
-              <input
-                name="teamImage"
-=======
            <form enctype="multipart/form-data" action="/Software-Engineering-Local/src/app/helpers/processForm.php" method="post">
             <div>
               <h4 class="modal-title">Add Team</h4>
@@ -150,41 +128,20 @@
               <label for="TeamImage">Team Icon:</label>
               <input
                 name="TeamImage" id="TeamImage"
->>>>>>> Stashed changes
                 type="file"
                 accept=".jpg, .jpeg, .png, .svg"
               />
             </div>
-<<<<<<< Updated upstream
-            <label for="teamScore">Team Score:</label>
-            <input name="teamScore" type="text" />
-            <div class="flex-container">
-              <button type="submit" name="add-team">Submit</button>
-=======
             <label for="TeamScore">Team Score:</label>
             <input name="TeamScore" id="TeamScore" type="text" />
             <div class="flex-container">
               <button id="add-team" name="add-team">Submit</button>
->>>>>>> Stashed changes
               <button class="modal-exit">Cancel</button>
             </div>
           </form>
         </dialog>
 
         <dialog id="editTeamModal">
-<<<<<<< Updated upstream
-          <form action="index.php" method="post">
-            <div>
-              <h4 class="modal-title">Edit Team</h4>
-              <label for="teamID">Team ID:</label>
-              <input name="teamID" type="text" />
-              <label for="teamName">Team Name:</label>
-              <input name="teamName" type="text" />
-            </div>
-            <label for="teamImage">Team Icon:</label>
-              <input
-                name="teamImage"
-=======
           <form enctype="multipart/form-data" action="/Software-Engineering-Local/src/app/helpers/processForm.php" method="post">
             <div>
               <h4 class="modal-title">Edit Team</h4>
@@ -196,42 +153,20 @@
             <label for="TeamImage">Team Icon:</label>
               <input
                 name="TeamImage" id="TeamImage"
->>>>>>> Stashed changes
                 type="file"
                 accept=".jpg, .jpeg, .png, .svg"
               />
             </div>
-<<<<<<< Updated upstream
-            <label for="teamScore">Team Score:</label>
-            <input name="teamScore" type="text" />
-            <div class="flex-container">
-              <button type="submit" name="edit-team">Submit</button>
-=======
             <label for="TeamScore">Team Score:</label>
             <input name="TeamScore" id="TeamScore" type="text" />
             <div class="flex-container">
               <button id="edit-team" name="edit-team">Submit</button>
->>>>>>> Stashed changes
               <button class="modal-exit">Cancel</button>
             </div>
           </form>
         </dialog>
 
         <dialog id="addMilestoneModal">
-<<<<<<< Updated upstream
-          <form action="index.php" method="post">
-            <div>
-              <h4 class="modal-title">Add New Milestone</h4>
-              <label for="teamID">Team ID:</label>
-              <input name="teamID" type="text" />
-              <label for="teamMilestone">Milestone:</label>
-              <input name="teamMilestone" type="text" />
-              <label for="teamMilestone">Milestone Description:</label>
-              <input name="teamMilestoneDescription" type="text" />
-            </div>
-            <div class="flex-container">
-              <button type="submit" name="add-milestone">Submit</button>
-=======
           <form enctype="multipart/form-data" action="/Software-Engineering-Local/src/app/helpers/processForm.php" method="post">
             <div>
               <h4 class="modal-title">Add New Milestone</h4>
@@ -244,27 +179,12 @@
             </div>
             <div class="flex-container">
               <button  id="add-milestone" name="add-milestone">Submit</button>
->>>>>>> Stashed changes
               <button class="modal-exit">Cancel</button>
             </div>
           </form>
         </dialog>
 
         <dialog id="editMilestoneModal">
-<<<<<<< Updated upstream
-          <form action="index.php" method="post">
-            <div>
-              <h4 class="modal-title">Update Milestone</h4>
-              <label for="teamID">Team ID:</label>
-              <input name="teamID" type="text" />
-              <label for="teamMilestone">Milestone:</label>
-              <input name="teamMilestone" type="text" />
-              <label for="teamMilestone">Milestone Description:</label>
-              <input name="teamMilestoneDescription" type="text" />
-            </div>
-            <div class="flex-container">
-              <button type="submit" name="edit-milestone">Submit</button>
-=======
           <form enctype="multipart/form-data" action="/Software-Engineering-Local/src/app/helpers/processForm.php" method="post">
             <div>
               <h4 class="modal-title">Update Milestone</h4>
@@ -277,7 +197,6 @@
             </div>
             <div class="flex-container">
               <button  id="edit-milestone" name="edit-milestone">Submit</button>
->>>>>>> Stashed changes
               <button class="modal-exit">Cancel</button>
             </div>
           </form>

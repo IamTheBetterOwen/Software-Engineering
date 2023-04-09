@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 console.log("Connection Established");
 
->>>>>>> Stashed changes
 const modals = document.querySelectorAll("[data-modal]");
 const teamRankings = document.querySelectorAll(".team-listing");
 const rankPosition = document.querySelectorAll("[data-position]");
@@ -37,8 +34,5 @@ while (i < teamRankings.length) {
   }
   i++;
 }
-<<<<<<< Updated upstream
-=======
 
 //  CHART FUNCTIONS
->>>>>>> Stashed changes
