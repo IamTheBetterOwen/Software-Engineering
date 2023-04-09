@@ -310,11 +310,7 @@ dialog button {
 
 .grid-container {
   display: flex;
-<<<<<<< Updated upstream
-  width: 45rem;
-=======
   width: 50rem;
->>>>>>> Stashed changes
   align-items: center;
   justify-content: space-evenly;
   gap: 3rem;
@@ -334,10 +330,6 @@ dialog button {
 }
 
 .grid-container > * {
-<<<<<<< Updated upstream
-  width: 50px;
-  font-size: 0.95rem;
-=======
   width: 70px;
   font-size: 0.95rem;
 }
@@ -345,7 +337,6 @@ dialog button {
 .grid-container > * + * {
   display: grid;
   place-items: center;
->>>>>>> Stashed changes
 }
 
 div [data-position] {
