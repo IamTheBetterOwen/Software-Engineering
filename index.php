@@ -102,7 +102,7 @@
           </svg>
           Progress</a
         >
-        <h2 class="Team-name"></h2>
+        <h2 class="team-name"></h2>
       </aside>
       <!-- TODO -->
       <section class="welcome-dashboard">
