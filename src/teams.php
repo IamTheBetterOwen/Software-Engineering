@@ -1,6 +1,9 @@
 <?php
 include("../path.php");
+<<<<<<< Updated upstream
 // include(ROOT_PATH . "/src/app/controllers/teams.php");
+=======
+>>>>>>> Stashed changes
 
 include(ROOT_PATH . "/src/app/database/db.php");
 
@@ -47,7 +50,11 @@ include(ROOT_PATH . "/src/app/database/db.php");
     </header>
     <main class="main-content-wrapper teams">
       <aside class="side-panel">
+<<<<<<< Updated upstream
         <a href="../index.html">
+=======
+        <a href="../index.php">
+>>>>>>> Stashed changes
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40.503"
@@ -70,7 +77,11 @@ include(ROOT_PATH . "/src/app/database/db.php");
           </svg>
           Dashboard</a
         >
+<<<<<<< Updated upstream
         <a href="teams.html" class="active"
+=======
+        <a href="teams.php" class="active"
+>>>>>>> Stashed changes
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -120,6 +131,7 @@ include(ROOT_PATH . "/src/app/database/db.php");
         <h2 class="team-name"></h2>
       </aside>
       <section class="team-listing-wrapper">
+<<<<<<< Updated upstream
         <div class="colums-2">
 
                 
@@ -128,14 +140,40 @@ include(ROOT_PATH . "/src/app/database/db.php");
             <div data-position=""></div>
               <img
                 src="' . ROOT_PATH . $row["teamImage"] .'"
+=======
+
+        <div class="colums-2">
+          <div class="grid-title">
+            <h3>Postion</h3>
+            <h3>Display Image</h3>
+            <h3>Team Name</h3>
+            <h3>Team Id</h3>
+            <h3>Team Score</h3>
+            <h3>Team Rating</h3>
+          </div>
+
+          <?php while ($row = mysqli_fetch_array($result)) {
+            $tempImageLocation = explode("../", $row["teamImage"]);
+            
+          echo '<div class="grid-container team-listing">
+            <div data-position=""></div>
+            
+              <img
+                src="../' . $tempImageLocation[3] .'"
+>>>>>>> Stashed changes
                 alt="Team Profile"
                 class="progress-img"
               />
               
             <div class="user-name">' . $row["TeamName"] . '</div>
             <div class="user-id">' . $row["TeamID"] . '</div>
+<<<<<<< Updated upstream
             <div class="team-rank">' . $row["TeamRating"] . '</div>
             <div class="score">' . $row["TeamScore"] . '</div>
+=======
+            <div class="score">' . $row["TeamScore"] . '</div>
+            <div class="team-rank">' . $row["TeamRating"] . '</div>
+>>>>>>> Stashed changes
             </div>';
         }
           ?>

@@ -144,6 +144,17 @@ li a:hover:not(.active) {
   grid-template-rows: repeat(5, 14vh);
 }
 
+.grid-title {
+  --accent-clr: #414141;
+  color: var(--accent-clr);
+  background-color: var(--background-clr);
+  display: flex;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0px;
+  padding-bottom: 0.5rem;
+}
+
 .grid-container:not(:first-child) {
   margin-top: 1rem;
 }
@@ -172,6 +183,11 @@ li a:hover:not(.active) {
 
 .side-panel > * + * {
   margin-top: 3rem;
+}
+
+.colums-2 {
+  overflow-y: scroll;
+  padding-right: 40px;
 }
 
 .main-content-wrapper section {
@@ -289,11 +305,16 @@ dialog button {
   display: flex;
   gap: 1rem;
   margin-left: 1rem;
+  margin-top: 4rem !important;
 }
 
 .grid-container {
   display: flex;
+<<<<<<< Updated upstream
   width: 45rem;
+=======
+  width: 50rem;
+>>>>>>> Stashed changes
   align-items: center;
   justify-content: space-evenly;
   gap: 3rem;
@@ -309,14 +330,26 @@ dialog button {
   aspect-ratio: 1 / 1;
   color: var(--accent-clr);
   gap: 0.7rem;
+  border-radius: 50%;
 }
 
 .grid-container > * {
+<<<<<<< Updated upstream
   width: 50px;
+  font-size: 0.95rem;
+=======
+  width: 70px;
   font-size: 0.95rem;
 }
 
+.grid-container > * + * {
+  display: grid;
+  place-items: center;
+>>>>>>> Stashed changes
+}
+
 div [data-position] {
+  --accent-clr: #0f218f;
   font-weight: 700;
   font-size: 1.3em;
   color: var(--accent-clr);

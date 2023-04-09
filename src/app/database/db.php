@@ -3,9 +3,13 @@
 
   require('db_connect.php');
 
+   function valueDrop($value) // Temporary Function-- To Be Terminated after use
+  {
+    echo "<pre>", print_r($value, true), "</pre>";
+    die();
+  }
 
-    //Prepares data entered from keys to be used in functions
-  function executeQuery($sql, $data)
+    function executeQuery($sql, $data)
   {
     global $conn;
     $stmt = $conn->prepare($sql);
@@ -16,6 +20,7 @@
     return $stmt;
   }
 
+<<<<<<< Updated upstream
 
     // Terminates search after finding 1 record that matches conditions outlined dynamically
   function selectOne($table, $conditions)
@@ -110,3 +115,19 @@
       $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
       return $records;
     }
+=======
+  // function AddTeam($teamName, $teamScore, $teamImage) {
+
+  //   $sql = "INSERT INTO teams (TeamName, TeamScore, teamImage)
+  //           VALUES (?, ?, ?, ?)";
+  
+  //   $stmt = mysqli_stmt_init($conn);
+  
+  //   if (!mysqli_stmt_prepare($stmt, $sql)) {
+  //     die(mysqli_error($conn));
+  //   }
+  
+  //   mysqli_stmt_bind_param($stmt, $teamName, $teamScore, $teamImage);
+
+  // }
+>>>>>>> Stashed changes
