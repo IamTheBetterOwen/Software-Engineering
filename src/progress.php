@@ -1,10 +1,9 @@
 <?php
 include("../path.php");
-
 include(ROOT_PATH . "/src/app/database/db.php");
 
       global $conn;
-      $sql = "SELECT * FROM teams";
+      $sql = "SELECT m.*, t.TeamName, t.TeamRating FROM milestones AS m JOIN teams AS t ON m.TeamID = t.TeamID";
       $result = mysqli_query($conn, $sql);
 
 ?>
@@ -14,12 +13,13 @@ include(ROOT_PATH . "/src/app/database/db.php");
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teams - Leadership Project Team 8</title>
+    <title>Progress - Leadership Project Team 8</title>
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
     <script src="../assets/js/app.js" defer></script>
   </head>
 
@@ -27,7 +27,7 @@ include(ROOT_PATH . "/src/app/database/db.php");
     <header>
       <div class="user-profile">
         <img
-          src="../assets/img/User-Profile-Pic.png	"
+          src="../assets/img/User-Profile-Pic.png"
           alt="User Profile Picture"
           class="user--img"
         />
@@ -44,22 +44,10 @@ include(ROOT_PATH . "/src/app/database/db.php");
         <i class="uil uil-bell icons bell"></i>
       </div>
     </header>
-    <main class="main-content-wrapper teams">
+    <main class="main-content-wrapper progress">
       <aside class="side-panel">
-        <a href="../index.php">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40.503"
-            height="31.496"
-            viewBox="0 0 40.503 31.496"
-          >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: #0f218f;
-                }
-              </style>
-            </defs>
+        <a href="../index.php"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.503 31.496">
             <path
               id="Icon_awesome-home"
               data-name="Icon awesome-home"
@@ -69,7 +57,7 @@ include(ROOT_PATH . "/src/app/database/db.php");
           </svg>
           Dashboard</a
         >
-        <a href="teams.php" class="active"
+        <a href="teams.php"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.857"
@@ -100,8 +88,8 @@ include(ROOT_PATH . "/src/app/database/db.php");
           </svg>
           Schedule</a
         >
-        <a href="progress.php"
-          ><svg
+        <a href="progress.php" class="active">
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="39.99"
             height="32.5"
@@ -114,46 +102,61 @@ include(ROOT_PATH . "/src/app/database/db.php");
               transform="translate(-2.571 -5.784)"
             />
           </svg>
-          Progress</a
-        >
+          Progress
+        </a>
         <h2 class="team-name"></h2>
       </aside>
-      <section class="team-listing-wrapper">
 
-        <div class="colums-2">
-          <div class="grid-title">
-            <h3>Postion</h3>
-            <h3>Display Image</h3>
-            <h3>Team Name</h3>
-            <h3>Team Id</h3>
-            <h3>Team Score</h3>
-            <h3>Team Rating</h3>
-          </div>
+      <section class="milestone-table-wrapper">
+        <h2 class="section--title">Milestones</h2>
 
-          <?php while ($row = mysqli_fetch_array($result)) {
-            $tempImageLocation = explode("../", $row["teamImage"]);
-            
-          echo '<div class="grid-container team-listing">
-            <div data-position=""></div>
-            
-              <img
-                src="../' . $tempImageLocation[3] .'"
-                alt="Team Profile"
-                class="progress-img"
-              />
-              
-            <div class="user-name">' . $row["TeamName"] . '</div>
-            <div class="user-id">' . $row["TeamID"] . '</div>
-            <div class="score">' . $row["TeamScore"] . '</div>
-            <div class="team-rank">' . $row["TeamRating"] . '</div>
-            </div>';
-        }
-          ?>
-          
-          
-          
-        </div>
+        <table class="milestones-table" id="milestones-table">
+          <tr>
+            <th><a href="#" class="sort_column" id="MilestoneID" data-order="desc">ID</a></th>
+            <th><a href="#" class="sort_column" id="MilestoneTitle" data-order="desc">Title</a></th>
+            <th><a href="#" class="sort_column" colspan="2" id="MilestoneDescription" data-order="desc">Description</a></th>
+            <th><a href="#" class="sort_column" id="TeamName" data-order="desc">Team</a></th>
+          </tr>
+            <?php 
+              while ($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr>
+                  <td><?php echo $row['MilestoneID'] ?></td>
+                  <td><?php echo $row['MilestoneTitle'] ?></td>
+                  <td><?php echo $row['MilestoneDescription'] ?></td>
+                  <td><?php echo $row['TeamName'] ?></td>
+                </tr>
+              <?php
+              }
+            ?>
+        </table>
+
       </section>
     </main>
   </body>
 </html>
+
+<script>
+  console.log("hello")
+  $(document).ready(function() {
+    $(document).on('click','.sort_column', function() {
+      var columnName = $(this).attr("id");
+      var dataOrder = $(this).data("order");
+      var arrowDirection = "";
+      if (dataOrder == 'desc') {
+        arrowDirection = '<span class="down-arrow"> v</span>';
+      }else {
+        arrowDirection = '<span class="up-arrow"> ^</span>';
+      }
+      $.ajax({
+        url:"sortProgress.php",
+        method:"POST",
+        data: {columnName:columnName, dataOrder:dataOrder},
+          success:function(data) {
+            $("#milestones-table").html(data);
+            $('#'+columnName+'').append(arrowDirection);
+          }
+      })
+    });
+  });
+</script>

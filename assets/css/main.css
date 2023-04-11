@@ -5,6 +5,81 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* meh: this changes the responsiveness for the devices*/
+
+/* For devices with a screen width of 768px or less */
+@media screen and (max-width: 768px) {
+  /* Reduce the font size of the header */
+  header {
+    font-size: 14px;
+  }
+
+  /* Adjust the size of the user profile picture */
+  .user--img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Hide the search bar and notification block */
+  .search-bar,
+  .notification-block {
+    display: none;
+  }
+
+  /* Adjust the layout of the side panel */
+  .side-panel {
+    width: 100%;
+  }
+
+  /* Adjust the layout of the main content wrapper */
+  .main-content-wrapper {
+    margin-left: 0;
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+
+/* For devices with a screen width between 768px and 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Reduce the font size of the header */
+  header {
+    font-size: 16px;
+  }
+
+  /* Adjust the size of the user profile picture */
+  .user--img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Adjust the layout of the side panel */
+  .side-panel {
+    width: 200px;
+  }
+
+  /* Adjust the layout of the main content wrapper */
+  .main-content-wrapper {
+    margin-left: 200px;
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
 
 :root {
   --primary-clr: #ffffff;
@@ -91,6 +166,10 @@ header > * {
 .notification-block {
   gap: 1.5rem;
   font-size: 1.5em;
+}
+
+.notification-block > * {
+  cursor: pointer;
 }
 
 .user-role-title {
@@ -191,7 +270,7 @@ li a:hover:not(.active) {
 }
 
 .main-content-wrapper section {
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .main-content-wrapper.dashboard section {
@@ -202,6 +281,7 @@ button {
   padding: 0.5rem 3rem;
   max-width: 12rem;
   height: 3.5rem;
+  cursor: pointer;
 }
 
 .search-bar {
@@ -300,11 +380,11 @@ dialog button {
 
 .team-listing-wrapper {
   width: 80rem;
-  height: 35rem;
+  height: 38rem;
   overflow-y: hidden;
   display: flex;
   gap: 1rem;
-  margin-left: 1rem;
+  margin-left: 10rem;
   margin-top: 4rem !important;
 }
 
@@ -343,5 +423,106 @@ div [data-position] {
   --accent-clr: #0f218f;
   font-weight: 700;
   font-size: 1.3em;
+  color: var(--accent-clr);
+}
+
+.milestone-cards {
+  margin-top: 4.5rem;
+  margin-left: 7rem;
+  width: 70rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.milestone-card {
+  height: 17rem;
+  background-color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.75rem;
+}
+
+.milestone-card .user-name {
+  margin-top: 0.75rem;
+}
+
+.milestone-card .user-img {
+  width: 5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  background-color: #0f208f;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.user-img img {
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+.milestone-card button {
+  max-width: unset;
+}
+
+.milestone-table-wrapper {
+  margin-left: 5rem;
+  /* padding: 1rem 1rem 10rem 1rem;
+  background-color: white;
+  border-radius: 1rem; */
+}
+
+.milestone-table-wrapper .section--title {
+  margin-bottom: 0.7em;
+}
+
+.milestones-table {
+  width: 60rem;
+  border-spacing: 0;
+}
+
+th,
+td {
+  padding-left: 0.5rem;
+  text-align: left;
+}
+
+td:last-child,
+td:first-child {
+  text-align: center;
+}
+
+/* tr > th:nth-child(3) {
+  width: 15rem;
+} */
+
+tr > th {
+  width: auto;
+}
+
+th {
+  padding-block: 0.2rem;
+}
+
+tr:first-of-type {
+  margin-bottom: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+.milestones-table a {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
   color: var(--accent-clr);
 }

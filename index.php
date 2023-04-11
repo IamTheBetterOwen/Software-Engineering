@@ -71,7 +71,7 @@
           </svg>
           Teams</a
         >
-        <a href="src/schedule.html"
+        <a href="src/schedule.php"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -86,7 +86,7 @@
           </svg>
           Schedule</a
         >
-        <a href="src/progress.html"
+        <a href="src/progress.php"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="39.99"

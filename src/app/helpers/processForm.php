@@ -135,8 +135,7 @@ if (isset($_POST['edit-team'])) {
 
     // Execute the UPDATE statement
     if ($conn->query($updateStmt) === TRUE) {
-        // header('Location: ../../../index.php?uploadsuccess=1');
-        echo "wow";
+        header('Location: ../../../index.php?uploadsuccess=1');
     } else {
         header("Location: ../../../index.php?uploadfail=1&TeamName=" . $teamName . "&TeamScore=" . $teamScore);
     }
@@ -148,3 +147,88 @@ if (isset($_POST['edit-team'])) {
 
 
 
+
+
+if (isset($_POST['add-milestone'])) {
+    $teamMilestone = $_POST['TeamMilestone'];
+    $teamMilestoneDescription = $_POST['TeamMilestoneDescription'];
+    $teamID = $_POST['TeamID'];
+
+    // Connect to the database
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $db_name = 'swen_test';
+    $conn = new mysqli($host, $user, $pass, $db_name);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        header('Location: ../../../index.php?uploadfail=1');
+    }
+
+    // Insert the image file path into the database
+    $sql = "INSERT INTO milestones (MilestoneTitle, MilestoneDescription, TeamID) VALUES ('$teamMilestone', '$teamMilestoneDescription','$teamID')";
+    if ($conn->query($sql) === true) {
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    header('Location: ../../../index.php?uploadsuccess=1');
+    // Close the database connection
+    $conn->close();
+
+}
+
+if (isset($_POST['edit-milestone'])) {
+    $teamMilestone = $_POST['TeamMilestone'];
+    $teamMilestoneDescription = $_POST['TeamMilestoneDescription'];
+    $teamID = $_POST['TeamID'];
+
+    $newData = array(
+        "MilestoneTitle" => "$teamMilestone",
+        "MilestoneDescription" => $teamMilestoneDescription,
+    );
+
+
+    
+    // Connect to the database
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $db_name = 'swen_test';
+    $conn = new mysqli($host, $user, $pass, $db_name);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Construct the UPDATE statement
+    $updateStmt = "UPDATE milestones SET ";
+
+    foreach ($newData as $field => $value) {
+        // Only update non-empty values
+        if (!empty($value)) {
+
+            // Add the field/value pair to the UPDATE statement
+             $updateStmt .= "$field='$value', ";
+        }
+    }
+
+    // Remove the trailing comma and space from the statement
+    $updateStmt = rtrim($updateStmt, ", ");
+
+    // Add the WHERE clause to the UPDATE statement
+    $updateStmt .= " WHERE TeamID='$teamID'";
+
+    // Execute the UPDATE statement
+    if ($conn->query($updateStmt) === TRUE) {
+        header('Location: ../../../index.php?uploadsuccess=1');
+    } else {
+        header("Location: ../../../index.php?uploadfail=1&TeamID=" . $teamID . "&TeamMilestone=" . $teamMilestone . "&TeamMilestoneDescription=" . $teamMilestoneDescription);
+    }
+
+    // Close the database connection
+    $conn->close();
+}

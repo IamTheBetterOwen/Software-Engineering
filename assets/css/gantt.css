@@ -1,0 +1,13 @@
+.chartCard {
+  width: 100vw;
+  height: calc(100vh - 40px);
+  margin-top: 4rem;
+  margin-left: 5rem;
+}
+.chartBox {
+  width: 70rem;
+  margin-top: -3rem;
+  border-radius: 20px;
+  /* border: solid 3px rgba(54, 162, 235, 1); */
+  /* background: white; */
+}

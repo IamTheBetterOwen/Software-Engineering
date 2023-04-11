@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Progress - Leadership Project Team 8</title>
+    <title>Schedule - Leadership Project Team 8</title>
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/gantt.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -63,7 +64,7 @@
           </svg>
           Teams</a
         >
-        <a href="schedule.html" class="active"
+        <a href="schedule.php" class="active"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -78,7 +79,7 @@
           </svg>
           Schedule</a
         >
-        <a href="progress.html">
+        <a href="progress.php">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="39.99"
@@ -96,6 +97,120 @@
         >
         <h2 class="team-name"></h2>
       </aside>
+      <div class="chartCard">
+        <div class="chartBox">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"
+      ></script>
+      <script>
+        // setup
+        const chartLabel = "Leaderboard Production Timeline";
+        const data = {
+          labels: [
+            "Project Plan",
+            "Design Requirements",
+            "Specification Requirements",
+            "Prototyping",
+            "Debugging",
+            "Design & Implementation",
+          ],
+          datasets: [
+            {
+              label: chartLabel,
+              data: [
+                ["2023-03-01", "2023-03-07"],
+                ["2023-03-07", "2023-03-10"],
+                ["2023-03-10", "2023-03-17"],
+                ["2023-03-17", "2023-03-20"],
+                ["2023-03-20", "2023-03-30"],
+                ["2023-03-30", "2023-04-07"],
+              ],
+              backgroundColor: [
+                "rgba(255, 26, 104, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+                "rgba(0, 0, 0, 1)",
+              ],
+              barPercentage: 0.25,
+            },
+          ],
+        };
+        const legendMargin = {
+          id: "legendMargin",
+          beforeInit(chart, legend, options) {
+            const fitValue = chart.legend.fit;
+
+            chart.legend.fit = function fit() {
+              fitValue.bind(chart.legend)();
+              return (this.height += 10);
+            };
+          },
+        };
+
+        const toolTipTitle = (toolTipItems) => {
+          return "";
+        };
+
+        const toolTipLabel = (toolTipItems) => {
+          return chartLabel;
+        };
+
+        // config
+        const config = {
+          type: "bar",
+          data,
+          options: {
+            indexAxis: "y",
+            scales: {
+              x: {
+                min: "2023-03-01",
+                type: "time",
+                time: {
+                  unit: "day",
+                },
+              },
+              y: {
+                beginAtZero: true,
+              },
+            },
+            plugins: {
+              legend: {
+                position: "top",
+                labels: {
+                  padding: 50,
+                },
+              },
+              tooltip: {
+                yAlign: "bottom",
+                displayColors: false,
+                callbacks: {
+                  title: toolTipTitle,
+                  label: toolTipLabel,
+                },
+              },
+            },
+          },
+          plugins: [legendMargin],
+        };
+
+        // render init block
+        const myChart = new Chart(document.getElementById("myChart"), config);
+
+        // Instantly assign Chart.js version
+        const chartVersion = document.getElementById("chartVersion");
+        chartVersion.innerText = Chart.version;
+      </script>
     </main>
   </body>
 </html>
