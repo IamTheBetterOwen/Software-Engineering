@@ -8,6 +8,7 @@ $teamID = "";
 $teamName = "";
 $teamScore = "";
 $teamRank = "";
+$milestoneID = "";
 $teamMilestone = "";
 $teamMilestoneDescription = "";
 
@@ -183,7 +184,7 @@ if (isset($_POST['add-milestone'])) {
 if (isset($_POST['edit-milestone'])) {
     $teamMilestone = $_POST['TeamMilestone'];
     $teamMilestoneDescription = $_POST['TeamMilestoneDescription'];
-    $teamID = $_POST['TeamID'];
+    $milestoneID = $_POST['MilestoneID'];
 
     $newData = array(
         "MilestoneTitle" => "$teamMilestone",
@@ -220,13 +221,13 @@ if (isset($_POST['edit-milestone'])) {
     $updateStmt = rtrim($updateStmt, ", ");
 
     // Add the WHERE clause to the UPDATE statement
-    $updateStmt .= " WHERE TeamID='$teamID'";
+    $updateStmt .= " WHERE MilestoneID='$milestoneID'";
 
     // Execute the UPDATE statement
     if ($conn->query($updateStmt) === TRUE) {
         header('Location: ../../../index.php?uploadsuccess=1');
     } else {
-        header("Location: ../../../index.php?uploadfail=1&TeamID=" . $teamID . "&TeamMilestone=" . $teamMilestone . "&TeamMilestoneDescription=" . $teamMilestoneDescription);
+        header("Location: ../../../index.php?uploadfail=1&MilestoneID=" . $milestoneID . "&TeamMilestone=" . $teamMilestone . "&TeamMilestoneDescription=" . $teamMilestoneDescription);
     }
 
     // Close the database connection

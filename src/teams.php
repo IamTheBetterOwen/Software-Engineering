@@ -31,18 +31,18 @@ include(ROOT_PATH . "/src/app/database/db.php");
           alt="User Profile Picture"
           class="user--img"
         />
-        <h3 class="user--name">Ashley</h3>
-        <i class="uil uil-angle-down icons down-arrow"></i>
+        <h3 class="user--name">Bullet Board</h3>
+        <!-- <i class="uil uil-angle-down icons down-arrow"></i> -->
       </div>
-      <div class="search-bar">
+      <!-- <div class="search-bar">
         <i class="uil uil-search icons searchbar"></i>
         <input type="search" name="#" id="#" placeholder="Search..." />
-      </div>
-      <div class="notification-block">
+      </div> -->
+      <!-- <div class="notification-block">
         <h4 class="user-role-title">Admin</h4>
         <i class="uil uil-envelope-alt icons mail"></i>
         <i class="uil uil-bell icons bell"></i>
-      </div>
+      </div> -->
     </header>
     <main class="main-content-wrapper teams">
       <aside class="side-panel">
@@ -122,7 +122,7 @@ include(ROOT_PATH . "/src/app/database/db.php");
 
         <div class="colums-2">
           <div class="grid-title">
-            <h3>Postion</h3>
+            <h3>Position</h3>
             <h3>Display Image</h3>
             <h3>Team Name</h3>
             <h3>Team Id</h3>
@@ -141,7 +141,7 @@ include(ROOT_PATH . "/src/app/database/db.php");
                 alt="Team Profile"
                 class="progress-img"
               />
-              
+            
             <div class="user-name">' . $row["TeamName"] . '</div>
             <div class="user-id">' . $row["TeamID"] . '</div>
             <div class="score">' . $row["TeamScore"] . '</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 06:04 AM
+-- Generation Time: Apr 14, 2023 at 12:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -40,8 +40,12 @@ CREATE TABLE `milestones` (
 --
 
 INSERT INTO `milestones` (`MilestoneID`, `MilestoneTitle`, `MilestoneDescription`, `TeamID`, `MilestoneTimestamp`) VALUES
-(1, 'This is our new milestone', 'The group has determined what roles they wanted to take and are finalizing it', 10, '2023-04-10 22:37:32'),
-(2, 'A secondary milestone', 'This is just another milestone', 12, '2023-04-11 00:58:13');
+(1, 'This is our new milestone', 'The group has determined what roles they wanted to take and are finalizing it', 13, '2023-04-10 22:37:32'),
+(2, 'Project Specification', 'The group defined the scope of their program', 12, '2023-04-11 00:58:13'),
+(3, 'Testing', 'The debuggers have identified the current bugs,', 10, '2023-04-13 22:26:31'),
+(4, 'Prototyping', 'The team has finished level 1 prototyping', 21, '2023-04-13 22:50:13'),
+(5, 'Prototyping', 'The team has finished level 2 prototyping', 21, '2023-04-13 22:50:13'),
+(6, 'Design', 'The team completed their UIX Design', 12, '2023-04-13 22:50:13');
 
 -- --------------------------------------------------------
 
@@ -62,15 +66,19 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`TeamID`, `TeamName`, `TeamScore`, `TeamRating`, `teamImage`) VALUES
-(1, '1w', 2, 4, '../../../assets/img/KFYE Productions Chicken.png'),
-(10, 'niewu', 2, 0, '../../../assets/img/'),
+(1, 'Lyfe', 2, 4, '../../../assets/img/KFYE Productions Chicken.png'),
+(10, 'Test', 2, 0, '../../../assets/img/'),
 (11, 'HelloWorld', 2, 0, '../../../assets/img/pexels-junior-teixeira-2047905.jpg'),
 (12, 'IconicDev', 0, 0, '../../../assets/img/pexels-evie-shaffer-4004374.jpg'),
-(13, '124', 31, 0, '../../../assets/img/Councellor door.jpg'),
-(14, 'Axxonyx', 127, 0, '../../../assets/img/'),
+(13, 'CrunchMental', 31, 0, '../../../assets/img/Councellor door.jpg'),
+(14, 'Axxonyx', 27, 0, '../../../assets/img/'),
 (15, 'Koney', 23, 0, '../../../assets/img/'),
-(16, '32', 21, 0, '../../../assets/img/'),
-(17, 'Teanbecdo', 31, 0, '../../../assets/img/pexels-lan-yao-6742945.jpg');
+(16, 'Korey', 21, 0, '../../../assets/img/'),
+(17, 'Teanbecdo', 31, 0, '../../../assets/img/pexels-lan-yao-6742945.jpg'),
+(18, 'E=MC^2', 34, 0, '../../../assets/img/pexels-evie-shaffer-4004374.jpg'),
+(19, 'hdeb', 24, 0, '../../../assets/img/pexels-fauxels-3183198.jpg'),
+(20, 'Team 3', 64, 0, '../../../assets/img/pexels-anastasia-yudin-5167249.jpg'),
+(21, 'Quadeca', 99, 0, '../../../assets/img/pexels-daria-shevtsova-1356300.jpg');
 
 --
 -- Indexes for dumped tables
@@ -96,13 +104,13 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `milestones`
 --
 ALTER TABLE `milestones`
-  MODIFY `MilestoneID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MilestoneID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `TeamID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `TeamID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

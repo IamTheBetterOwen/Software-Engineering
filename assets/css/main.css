@@ -535,4 +535,13 @@ tr:nth-child(odd) {
   margin-right: auto;
   text-align: left;
   color: var(--accent-clr);
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.error-messages {
+  color: red;
+  text-align: center;
+}
+>>>>>>> Stashed changes

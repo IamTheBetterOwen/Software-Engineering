@@ -22,18 +22,18 @@
           alt="User Profile Picture"
           class="user--img"
         />
-        <h3 class="user--name">Ashley</h3>
-        <i class="uil uil-angle-down icons down-arrow"></i>
+        <h3 class="user--name">Bullet Board</h3>
+       <!-- // <i class="uil uil-angle-down icons down-arrow"></i> -->
       </div>
-      <div class="search-bar">
+      <!-- <div class="search-bar">
         <i class="uil uil-search icons searchbar"></i>
         <input type="search" name="#" id="#" placeholder="Search..." />
-      </div>
-      <div class="notification-block">
+      </div> -->
+      <!-- <div class="notification-block">
         <h4 class="user-role-title">Admin</h4>
         <i class="uil uil-envelope-alt icons mail"></i>
         <i class="uil uil-bell icons bell"></i>
-      </div>
+      </div> -->
     </header>
     <main class="main-content-wrapper">
       <aside class="side-panel">
@@ -129,17 +129,17 @@
                 ["2023-03-01", "2023-03-07"],
                 ["2023-03-07", "2023-03-10"],
                 ["2023-03-10", "2023-03-17"],
-                ["2023-03-17", "2023-03-20"],
-                ["2023-03-20", "2023-03-30"],
+                ["2023-03-17", "2023-03-28"],
+                ["2023-03-28", "2023-03-30"],
                 ["2023-03-30", "2023-04-07"],
               ],
               backgroundColor: [
-                "rgba(255, 26, 104, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
                 "rgba(153, 102, 255, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(255, 206, 86, 1)",
                 "rgba(255, 159, 64, 1)",
+                "rgba(255, 26, 104, 1)",
                 "rgba(0, 0, 0, 1)",
               ],
               barPercentage: 0.25,
