@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 *,
 *::before,
@@ -12,7 +12,6 @@
 
 /* For devices with a screen width of 768px or less */
 @media screen and (max-width: 768px) {
-
   /* Reduce the font size of the header */
   header {
     font-size: 14px;
@@ -55,7 +54,6 @@
 
 /* For devices with a screen width between 768px and 1024px */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-
   /* Reduce the font size of the header */
   header {
     font-size: 16px;
@@ -102,7 +100,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-family: 'Poppins', san-ser7if;
+  font-family: "Poppins", san-ser7if;
 }
 
 svg {
@@ -145,7 +143,7 @@ header img {
   max-width: 50px;
 }
 
-header>* {
+header > * {
   display: flex;
   align-items: center;
 }
@@ -178,7 +176,7 @@ header>* {
   font-size: 1.5em;
 }
 
-.notification-block>* {
+.notification-block > * {
   cursor: pointer;
 }
 
@@ -258,7 +256,7 @@ li a:hover:not(.active) {
   border-top: none;
 }
 
-.side-panel>* {
+.side-panel > * {
   display: block;
 }
 
@@ -270,7 +268,7 @@ li a:hover:not(.active) {
   text-transform: uppercase;
 }
 
-.side-panel>*+* {
+.side-panel > * + * {
   margin-top: 3rem;
 }
 
@@ -419,12 +417,12 @@ dialog button {
   border-radius: 50%;
 }
 
-.grid-container>* {
+.grid-container > * {
   width: 70px;
   font-size: 0.95rem;
 }
 
-.grid-container>*+* {
+.grid-container > * + * {
   display: grid;
   place-items: center;
 }
@@ -510,7 +508,7 @@ td:first-child {
   width: 15rem;
 } */
 
-tr>th {
+tr > th {
   width: auto;
 }
 
@@ -535,13 +533,4 @@ tr:nth-child(odd) {
   margin-right: auto;
   text-align: left;
   color: var(--accent-clr);
-<<<<<<< Updated upstream
 }
-=======
-}
-
-.error-messages {
-  color: red;
-  text-align: center;
-}
->>>>>>> Stashed changes
